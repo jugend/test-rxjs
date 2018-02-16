@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "lite-server --baseDir=public",
+    "watch": "gulp watch:scripts",
     "nodemon": "nodemon --watch build"
   },
   "repository": {
@@ -25,6 +27,7 @@
     "gulp-babel": "^7.0.1",
     "gulp-cached": "^1.1.1",
     "gulp-load-plugins": "^1.5.0",
+    "lite-server": "^2.3.0",
     "nodemon": "^1.15.0",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.10.0"
