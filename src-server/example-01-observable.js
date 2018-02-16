@@ -56,11 +56,36 @@ function createSubscriber(tag) {
 function createInterval$(time) {
   return new Rx.Observable(observer => {
     let index = 0
-    setInterval(() => {
+    let interval = setInterval(() => {
       observer.next(index++)
     }, time)
+
+    // Invoked on unsubscribe
+    return () => {
+      clearInterval(interval)
+    }
+  })
+}
+
+function take$(sourceObservable$, amount) {
+  return new Rx.Observable(observer => {
+    let count = 0
+    const subscription = sourceObservable$.subscribe({
+      next(item) {
+        observer.next(item)
+        if (++count >= amount)
+          observer.complete()
+      },
+      error(error) { observer.error(err) },
+      complete() { observer.complete() }
+    })
   })
 }
 
 const everySecond$ = createInterval$(1000)
-everySecond$.subscribe(createSubscriber('one'))
+const firstFiveSeconds$ = take$(everySecond$, 5)
+const subscription = firstFiveSeconds$.subscribe(createSubscriber('one'))
+
+// setTimeout(() => {
+//   subscription.unsubscribe()
+// }, 3000)

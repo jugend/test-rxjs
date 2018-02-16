@@ -70,11 +70,39 @@ function createSubscriber(tag) {
 function createInterval$(time) {
   return new _Rx2.default.Observable(function (observer) {
     var index = 0;
-    setInterval(function () {
+    var interval = setInterval(function () {
       observer.next(index++);
     }, time);
+
+    // Invoked on unsubscribe
+    return function () {
+      clearInterval(interval);
+    };
+  });
+}
+
+function take$(sourceObservable$, amount) {
+  return new _Rx2.default.Observable(function (observer) {
+    var count = 0;
+    var subscription = sourceObservable$.subscribe({
+      next: function next(item) {
+        observer.next(item);
+        if (++count >= amount) observer.complete();
+      },
+      error: function error(_error3) {
+        observer.error(err);
+      },
+      complete: function complete() {
+        observer.complete();
+      }
+    });
   });
 }
 
 var everySecond$ = createInterval$(1000);
-everySecond$.subscribe(createSubscriber('one'));
+var firstFiveSeconds$ = take$(everySecond$, 5);
+var subscription = firstFiveSeconds$.subscribe(createSubscriber('one'));
+
+// setTimeout(() => {
+//   subscription.unsubscribe()
+// }, 3000)
