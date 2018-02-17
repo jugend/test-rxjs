@@ -1,3 +1,4 @@
+import 'babel-bolyfill1'
 import $ from 'jquery'
 import Rx from 'rxjs/Rx'
 

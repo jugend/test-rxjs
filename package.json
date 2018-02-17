@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/jugend/test-rxjs#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^16.1.0",
@@ -33,6 +35,7 @@
     "watchify": "^3.10.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "colour": "^0.7.1",
     "jquery": "^3.3.1",
     "lodash": "^4.17.5",
