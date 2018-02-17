@@ -89,7 +89,7 @@ function take$(sourceObservable$, amount) {
         observer.next(item);
         if (++count >= amount) observer.complete();
       },
-      error: function error(_error3) {
+      error: function error(err) {
         observer.error(err);
       },
       complete: function complete() {
@@ -99,9 +99,9 @@ function take$(sourceObservable$, amount) {
   });
 }
 
-var everySecond$ = createInterval$(1000);
-var firstFiveSeconds$ = take$(everySecond$, 5);
-var subscription = firstFiveSeconds$.subscribe(createSubscriber('one'));
+// const everySecond$ = createInterval$(1000)
+// const firstFiveSeconds$ = take$(everySecond$, 5)
+// const subscription = firstFiveSeconds$.subscribe(createSubscriber('one'))
 
 // setTimeout(() => {
 //   subscription.unsubscribe()

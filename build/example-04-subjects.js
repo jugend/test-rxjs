@@ -19,6 +19,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 // Interval subject acts as a bridge for the interval
+// Turn cold observable into hot observable
 // const interval$ = new Rx.Observable.interval(1000).take(5)
 // const intervalSubject$ = new Rx.Subject()
 //

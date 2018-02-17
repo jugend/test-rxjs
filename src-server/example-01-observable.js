@@ -76,15 +76,15 @@ function take$(sourceObservable$, amount) {
         if (++count >= amount)
           observer.complete()
       },
-      error(error) { observer.error(err) },
+      error(err) { observer.error(err) },
       complete() { observer.complete() }
     })
   })
 }
 
-const everySecond$ = createInterval$(1000)
-const firstFiveSeconds$ = take$(everySecond$, 5)
-const subscription = firstFiveSeconds$.subscribe(createSubscriber('one'))
+// const everySecond$ = createInterval$(1000)
+// const firstFiveSeconds$ = take$(everySecond$, 5)
+// const subscription = firstFiveSeconds$.subscribe(createSubscriber('one'))
 
 // setTimeout(() => {
 //   subscription.unsubscribe()
