@@ -1,6 +1,12 @@
 import Rx from 'rxjs/Rx'
 import { createSubscriber } from './util'
 
+// Map, transform an item
+Rx.Observable.interval(1000)
+  .take(3)
+  .map(a => a * a)
+  .subscribe(createSubscriber('map'))
+
 // Merge Map
 // one.next Track 1
 // one.next Track 2
