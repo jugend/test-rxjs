@@ -40,7 +40,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // GET API Wtith retry
 // Getting API
-// Getting API
+// Getting PI
 // Getting API
 // Getting API
 // do THING
