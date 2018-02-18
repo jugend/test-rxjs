@@ -7,7 +7,7 @@ exports.createSubscriber = createSubscriber;
 function createSubscriber(tag) {
 	return {
 		next: function next(item) {
-			console.log(tag + ".next " + item);
+			console.log(tag + ".next " + JSON.stringify(item));
 		},
 		error: function error(_error) {
 			console.log(tag + ".error " + (_error.stack || _error));
