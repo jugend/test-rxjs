@@ -28,5 +28,5 @@ function testBindCallbackWithEmpty() {
     .subscribe(createSubscriber('flatMap'))
 }
 
-// testBindCallback()
-testBindCallbackWithEmpty()
+testBindCallback()
+// testBindCallbackWithEmpty()

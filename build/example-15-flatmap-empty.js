@@ -32,5 +32,5 @@ function testBindCallbackWithEmpty() {
   }).subscribe((0, _util.createSubscriber)('flatMap'));
 }
 
-// testBindCallback()
-testBindCallbackWithEmpty();
+testBindCallback();
+// testBindCallbackWithEmpty()

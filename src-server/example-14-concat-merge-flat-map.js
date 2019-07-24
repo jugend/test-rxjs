@@ -52,6 +52,10 @@ function testFlatMap() {
   obs1$
     .flatMap(result => {
       console.log('>> obs1$ completed, result:', result)
+      // flatMap.next 1
+      // flatMap.next 2
+      // If array is returned
+      // return [1, 2]
       return obs2$.catch((error) => {
         return Rx.Observable.of(error.message)
       })
@@ -65,4 +69,4 @@ function testFlatMap() {
 
 // testConcat()
 // testMerge()
-// testFlatMap()
+testFlatMap()
